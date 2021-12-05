@@ -1,0 +1,14 @@
+services:
+  redis:
+    image: redis:6
+    container_name: redis6
+    restart: always
+    volumes:
+      - /docker/redis6/conf/redis.conf:/usr/local/etc/redis.conf
+      - redis6-data:/data
+    command: redis-server /usr/local/etc/redis.conf
+    network_mode: host
+
+volumes:
+  redis6-data:
+    name: redis6-data
